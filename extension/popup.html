@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phish Net</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      min-height: 500px;
+      min-width: 295px;
+      height: 45vh;
+      width: 25vw;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+ 
+    }
+    img{
+      height: 1.9cm;
+      width: 1.9cm;
+      margin-bottom: 0.189999cm;
+    }
+    #tit{
+      font-size: 0.86cm;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 0.668cm;
+      margin-bottom:0.24cm ;
+      color:blue ;
+
+    }
+    #url-display {
+  width: 80%; /* Set the desired width (adjust as needed) */
+  max-width: 100%; /* Ensure it doesn't exceed the parent's width */
+  text-align: center; /* Center-align the text within the box */
+  border: 2px solid #ccc; /* Add a border to create a box */
+  padding: 10px; /* Add padding for spacing inside the box */
+  margin: 10px auto; /* Center the box horizontally */
+  overflow: hidden; /* Hide content that exceeds the box */
+  white-space: normal; /* Allow text to wrap to the next line */
+  text-overflow: clip; /* Display all text (no ellipsis) */
+}
+
+
+@keyframes progress {
+  0% { --percentage: 0; }
+  100% { --percentage: var(--value); }
+}
+
+@property --percentage {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}   
+
+[role="progressbar"] {
+  --percentage: var(--value);
+  --primary:blue;
+  --secondary: rgb(15, 16, 15);
+  --size: 300px;
+  animation: progress 2s 0.5s forwards;
+  width: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+[role="progressbar"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(var(--primary) calc(var(--percentage) * 1%), var(--secondary) 0);
+  mask: radial-gradient(white 55%, transparent 0);
+  mask-mode: alpha;
+  -webkit-mask: radial-gradient(#0000 55%, #000 0);
+  -webkit-mask-mode: alpha;
+}
+
+[role="progressbar"]::after {
+  counter-reset: percentage var(--value);
+  content: counter(percentage) '%';
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 14);
+  color: var(--primary);
+}
+
+/* demo */
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: #f0f8ff;
+}
+
+#bar{
+  height: 2.5cm;
+  width: 2.5cm;
+}
+
+.button {
+  background-color:blue; /* Green */
+  border: none;
+  color:white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  height: 0.7cm;
+  width: 2.27cm;
+}
+
+.button1 {font-size: 10px;}
+
+</style>
+</head>
+<body>
+  <div id="tit">Phish Net</div>
+  <img src="./images/networking.png" alt="">
+  <div id="url-display">This is the URL display content. It will shrink to fit within the specified dimensions.</div>  
+  
+  <div id="bar" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="--value: 100" ></div>
+  
+  <div id="result-display" style="font-size: 0.42cm;color:blue">Click to check the Site</div>
+
+  <button class="button button1" id="load-webpage-button">Check</button>
+
+  <script src="popup.js"></script>
+
+</body>
+</html>
