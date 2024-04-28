@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "URL Monitor",
     "version": "1.0",
-    "description": "Monitors and alerts on URL changes.",
+    "description": "",
     "permissions": ["activeTab", "tabs"],
     "action": {
       "default_popup": "popup.html"

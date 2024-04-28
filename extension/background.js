@@ -1,4 +1,4 @@
-// Add an event listener to the tabs for URL changes.
+// event listner for getting URL from Webpage 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (changeInfo.url) {
       // Send a message to the popup.js script when the URL changes.
@@ -28,9 +28,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       })
       .catch((error) => {
         console.error('Error sending data to Flask:', error);
-        sendResponse({ error: 'An error occurred while communicating with the server.' });
+        sendResponse('Backend is sleeping please wake it up');
       });
-
     // Return true to indicate that we want to use sendResponse asynchronously.
     return true;
   }

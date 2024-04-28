@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
-from feature import FeatureExtraction
-with open('C://Projects//Phishing//Url Classification//classifier_2//classifier_2//apps//phish.pkl', 'rb') as file:
+from App.FeatureExtraction import FeatureExtraction
+with open('C://Projects//Phishing_Domain_Detection_Web_Extension//Model//phish.pkl', 'rb') as file:
     gbc = pickle.load(file)
     url = "https://repairs-iv-magazine-specialty.trycloudflare.com/"
     ul = FeatureExtraction(url)
