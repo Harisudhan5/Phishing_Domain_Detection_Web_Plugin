@@ -28,13 +28,10 @@ def dns_info(url):
     dns_inf = [domain_name, regisetrar, updated_date, creation_date, expiration_date, name_servers, status, organization, country, dnssec, email]
     return dns_inf
 
-# Centered title
 st.markdown("<h1 style='text-align: center;'>WebGuardian</h1>", unsafe_allow_html=True)
 
-# Text input box for URL with "Enter the URL" text
 url = st.text_input('Enter the URL:')
 
-# Button for checking URL
 if st.button('Check URL'):
     # Placeholder for URL checking functionality
     text = " "
@@ -49,7 +46,6 @@ if st.button('Check URL'):
                 text = "Unsafe"
             st.text('The Website is ' + text)
 
-# Button for analyzing website
 if st.button('Analyze Website'):
     with st.spinner('The website is being scanned'):
         dnsl = dns_info(url)
