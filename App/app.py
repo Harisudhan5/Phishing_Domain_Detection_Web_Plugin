@@ -12,19 +12,19 @@ def get_url():
         url = data['url']
         print("ok done")
         with open('C://Projects//Phishing_Domain_Detection_Web_Extension//Model//phish.pkl', 'rb') as file:
-            print("readed--------")
+            print("Fetching URL")
             print(url)
             gbc = pickle.load(file)
             urls = url
             ul = FeatureExtraction(urls)
-            print("Extracted Features........",ul)
+            print("Extracted Related Features ........",ul)
             x = np.array(ul.getFeaturesList()).reshape(1,30) 
             y_pred =gbc.predict(x)[0]
             print("Responding for the request sent by Flask application")
             print(y_pred)
             y_pro_phishing = gbc.predict_proba(x)[0,0]
             y_pro_non_phishing = gbc.predict_proba(x)[0,1]
-            print("output == ",y_pred)
+            print("Result == ",y_pred)
             print("phishing probabilty :",y_pro_phishing)
             print("non phishing probability :",y_pro_non_phishing)
             print(y_pred)
