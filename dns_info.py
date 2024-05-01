@@ -1,7 +1,8 @@
 import whois
 
 res = whois.whois('harisudhan.me')
-print(res)
+print("Overal Inforamtion = ",res)
+
 domain_name = res.domain_name
 regisetrar = res.registrar
 updated_date = res.updated_date
@@ -14,5 +15,4 @@ country = res.country
 dnssec = res.dnssec
 email = res.emails
 
-print(organization)
 
